@@ -30,6 +30,7 @@ def set_up(page):
 @pytest.fixture
 def login_set_up(set_up):
     page = set_up
+    page.set_default_timeout(3000)
     page.wait_for_load_state("networkidle")
 
     login_issue = True
