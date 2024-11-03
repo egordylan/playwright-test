@@ -24,7 +24,7 @@ def test_run(page, email, password) -> None:
     page.goto("https://symonstorozhenko.wixsite.com/website-1")
     time.sleep(2)
     page.wait_for_timeout(timeout=5000)
-    page.wait_for_load_state("networkidle")
+    #page.wait_for_load_state("networkidle")
 
     login_issue = True
     while login_issue:
