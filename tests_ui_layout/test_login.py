@@ -10,6 +10,7 @@ import pytest
 def test_login(login_set_up) -> None:
     page = login_set_up
 
+    page.wait_for_timeout(timeout=2000)
     page.wait_for_load_state("networkidle")
     expect(page.get_by_role("button", name="Log In")).to_be_hidden()
 

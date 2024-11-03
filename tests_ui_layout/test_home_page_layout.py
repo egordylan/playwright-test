@@ -7,7 +7,7 @@ from pom.home_page_elements import HomePage
 def test_about_us_section_verbiage(login_set_up) -> None:
     #Assess - Given
     page = login_set_up
-
+    page.wait_for_load_state("networkidle")
     home_page = HomePage(page)
     expect(home_page.celebrate_header).to_be_visible()
     expect(home_page.celebrate_body).to_be_visible()

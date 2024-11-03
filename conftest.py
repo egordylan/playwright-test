@@ -21,6 +21,7 @@ import pytest
 def set_up(page):
     page.goto("https://symonstorozhenko.wixsite.com/website-1")
     page.set_default_timeout(3000)
+    page.wait_for_load_state("networkidle")
 
     yield page
 
@@ -29,6 +30,7 @@ def set_up(page):
 @pytest.fixture
 def login_set_up(set_up):
     page = set_up
+    page.wait_for_load_state("networkidle")
 
     login_issue = True
     while login_issue:
@@ -36,7 +38,7 @@ def login_set_up(set_up):
             page.get_by_role("button", name="Log In").click()
         else:
             login_issue = False
-        time.sleep(0.5)
+        time.sleep(1)
 
     page.get_by_test_id("signUp.switchToSignUp").click()
     page.get_by_role("button", name="Log in with Email").click()

@@ -22,6 +22,7 @@ import pytest
                                       "Kaneki1"])
 def test_run(page, email, password) -> None:
     page.goto("https://symonstorozhenko.wixsite.com/website-1")
+    page.wait_for_timeout(timeout=2000)
     page.wait_for_load_state("networkidle")
 
     login_issue = True
@@ -40,8 +41,8 @@ def test_run(page, email, password) -> None:
     page.get_by_test_id("emailAuth").get_by_label("Email").press("Tab")
     page.get_by_label("Password").fill(password)
     page.get_by_test_id("submit").get_by_test_id("buttonElement").click()
-
+    page.wait_for_timeout(timeout=2000)
     page.wait_for_load_state("networkidle")
     expect(page.get_by_role("button", name="Log In")).to_be_hidden()
-
+    expect(page.locator("[aria-label=\"kaneki account menu\"]")).to_be_visible()
     print('Yamate Kudasai!')
