@@ -22,7 +22,8 @@ import pytest
                                       "Kaneki1"])
 def test_run(page, email, password) -> None:
     page.goto("https://symonstorozhenko.wixsite.com/website-1")
-    page.wait_for_timeout(timeout=2000)
+    time.sleep(2)
+    page.wait_for_timeout(timeout=5000)
     page.wait_for_load_state("networkidle")
 
     login_issue = True

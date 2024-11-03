@@ -24,7 +24,7 @@ def set_up(page):
     page.wait_for_load_state("networkidle")
 
     yield page
-
+    page.close()
 
 # @pytest.fixture(scope="session")
 @pytest.fixture
