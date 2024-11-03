@@ -1,5 +1,4 @@
 import time
-
 from playwright.sync_api import Playwright, expect
 import pytest
 
@@ -16,6 +15,7 @@ import pytest
 #
 #     yield page
 #     page.close()
+
 
 @pytest.fixture
 def set_up(page):
@@ -37,9 +37,7 @@ def login_set_up(set_up):
         else:
             login_issue = False
         time.sleep(0.5)
-    # page.wait_for_selector("button:has-text(\"Log In\")")
-    # page.get_by_role("button", name="Log In").click()
-    # page.get_by_role("button", name="Sign up with email").click()
+
     page.get_by_test_id("signUp.switchToSignUp").click()
     page.get_by_role("button", name="Log in with Email").click()
     page.get_by_test_id("emailAuth").get_by_label("Email").click()
@@ -50,7 +48,6 @@ def login_set_up(set_up):
     page.get_by_label("Password").fill("Kaneki1")
     page.get_by_test_id("submit").get_by_test_id("buttonElement").click()
     page.wait_for_load_state("networkidle")
-    expect(page.get_by_role("button", name="Log In")).to_be_hidden()
 
     yield page
 

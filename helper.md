@@ -35,8 +35,10 @@ Registry of all devices:
 
 https://github.com/microsoft/playwright/blob/main/packages/playwright-core/src/server/deviceDescriptorsSource.json
 
+**YML file reference link**
+https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
-
+**Test runners**
 https://playwright.dev/python/docs/test-runners
 
 --headed: Run tests in headed mode (default: headless).
