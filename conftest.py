@@ -12,6 +12,14 @@ PASSWORD = os.environ["PASSWORD"]
 #     import utils.secret_config
 #     PASSWORD = utils.secret_config.PASSWORD
 
+PASSWORD = os.environ["PASSWORD"]
+
+# try:
+#     PASSWORD = os.environ["PASSWORD"]
+# except KeyError:
+#     import utils.secret_config
+#     PASSWORD = utils.secret_config.PASSWORD
+
 # @pytest.fixture(scope="session")
 # def set_up(browser):
 #     #Assess - Given
